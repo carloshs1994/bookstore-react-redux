@@ -11,7 +11,6 @@ const Book = ({
 }) => {
   const dispatch = useDispatch();
   const removeBooksFromStore = (event) => {
-    console.log(event.target.id);
     dispatch(removeBook(event.target.id));
   };
   return (
