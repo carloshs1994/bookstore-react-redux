@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { v4 as uuid } from 'uuid';
 import { addBook } from '../redux/books/books';
 
 const Form = () => {
@@ -13,7 +14,7 @@ const Form = () => {
       title: bookTitle.current.value,
       author: bookAuthor.current.value,
       category: bookCategory.current.value,
-      id: bookTitle.current.value,
+      id: uuid(),
     };
     dispatch(addBook(newBook));
   };
