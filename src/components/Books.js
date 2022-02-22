@@ -7,7 +7,13 @@ import Book from './Book';
 const Books = () => {
   const bookList = useSelector((state) => state.booksReducer);
   const PrintBooks = ({ list }) => list.map((book) => (
-    <Book title={book.title} category={book.category} Author={book.author} key={book.id} />
+    <Book
+      title={book.title}
+      category={book.category}
+      Author={book.author}
+      key={book.id}
+      bookId={book.id}
+    />
   ));
   PrintBooks.propTypes = {
     list: PropTypes.arrayOf(PropTypes.object).isRequired,
