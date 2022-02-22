@@ -1,21 +1,20 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook, initialState } from '../redux/books/books';
+import { addBook } from '../redux/books/books';
 
 const Form = () => {
   const dispatch = useDispatch();
-  const bookTitle = React.useRef(null);
-  const bookAuthor = React.useRef(null);
-  const bookCategory = React.useRef(null);
+  const bookTitle = useRef(null);
+  const bookAuthor = useRef(null);
+  const bookCategory = useRef(null);
   const submitBooksToStore = (event) => {
     event.preventDefault();
     const newBook = {
       title: bookTitle.current.value,
       author: bookAuthor.current.value,
       category: bookCategory.current.value,
-      id: initialState.length,
+      id: bookTitle.current.value,
     };
-    console.log('The new book is: ', newBook);
     dispatch(addBook(newBook));
   };
 

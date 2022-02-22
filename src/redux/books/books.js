@@ -1,7 +1,7 @@
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
-export const initialState = [];
+const initialState = [];
 
 export const addBook = (payload) => ({
   type: ADD_BOOK,
@@ -29,7 +29,6 @@ const reducer = (state = initialState, action) => {
       (filter by the id key - i.e.:
         */
       return state.filter((book) => book.id !== action.id);
-
     default:
       return state;
   }
