@@ -6,9 +6,9 @@ const Header = () => (
     <h1>bookstore</h1>
     <nav>
       <Link to="/">Books</Link>
-      <span>|</span>
       <Link to="/categories">Categories</Link>
     </nav>
+    <span>Log in</span>
   </header>
 );
 
