@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import { removeBooksFromApi } from '../redux/books/books';
 
 const Book = ({
   title,
@@ -11,7 +11,7 @@ const Book = ({
 }) => {
   const dispatch = useDispatch();
   const removeBooksFromStore = (event) => {
-    dispatch(removeBook(event.target.id));
+    dispatch(removeBooksFromApi(event.target.id));
   };
   return (
     <li className="book">

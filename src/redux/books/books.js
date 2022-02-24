@@ -28,9 +28,16 @@ export const addBooksToApi = (newBook) => async (dispatch) => {
     category,
   };
   await axios.post(url, bookForAPI);
-  // const books = await axios.get(url);
-  // console.log(books);
+  const books = await axios.get(url);
+  console.log(books);
   dispatch(addBook(newBook));
+};
+
+export const removeBooksFromApi = (id) => async (dispatch) => {
+  await axios.delete(`${url}/${id}`);
+  const books = await axios.get(url);
+  console.log(books);
+  dispatch(removeBook(id));
 };
 
 const reducer = (state = initialState, action) => {
