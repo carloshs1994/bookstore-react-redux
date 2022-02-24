@@ -9,9 +9,9 @@ const Books = () => {
   const bookList = useSelector((state) => state.booksReducer);
   const PrintBooks = ({ list }) => list.map((book) => (
     <Book
-      title={book.title}
+      title={book.titleForObj}
       category={book.category}
-      Author={book.author}
+      Author={book.authorForObj}
       key={book.id}
       bookId={book.id}
     />

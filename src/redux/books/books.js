@@ -24,12 +24,17 @@ const getBook = (payload) => ({
 export const addBooksToApi = (newBook) => async (dispatch) => {
   const {
     id,
-    title,
+    titleForObj,
+    authorForObj,
     category,
   } = newBook;
+  const stringWithTitleAndAuthor = JSON.stringify({
+    realTitle: titleForObj,
+    realAuthor: authorForObj,
+  });
   const bookForAPI = {
     item_id: id,
-    title,
+    title: stringWithTitleAndAuthor,
     category,
   };
   await axios.post(url, bookForAPI);
@@ -45,9 +50,14 @@ export const getBooksFromApi = () => async (dispatch) => {
   const objWithBooks = await axios.get(url);
   const books = Object.entries(objWithBooks.data).map(([id, arr]) => {
     const { title, category } = arr[0];
-    return { id, title, category };
+    const { realTitle, realAuthor } = JSON.parse(title);
+    return {
+      id,
+      titleForObj: realTitle,
+      authorForObj: realAuthor,
+      category,
+    };
   });
-  console.log(books, objWithBooks);
   dispatch(getBook(books));
 };
 

@@ -11,8 +11,8 @@ const Form = () => {
   const submitBooksToStore = (event) => {
     event.preventDefault();
     const newBook = {
-      title: bookTitle.current.value,
-      author: bookAuthor.current.value,
+      titleForObj: bookTitle.current.value,
+      authorForObj: bookAuthor.current.value,
       category: bookCategory.current.value,
       id: uuid(),
     };
