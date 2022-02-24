@@ -1,7 +1,10 @@
+import axios from 'axios';
+
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 
 const initialState = [];
+const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kkQKmrjtK2Q8iaDR7VT7/books';
 
 export const addBook = (payload) => ({
   type: ADD_BOOK,
@@ -12,6 +15,23 @@ export const removeBook = (id) => ({
   type: REMOVE_BOOK,
   id,
 });
+
+export const addBooksToApi = (newBook) => async (dispatch) => {
+  const {
+    id,
+    title,
+    category,
+  } = newBook;
+  const bookForAPI = {
+    item_id: id,
+    title,
+    category,
+  };
+  await axios.post(url, bookForAPI);
+  // const books = await axios.get(url);
+  // console.log(books);
+  dispatch(addBook(newBook));
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

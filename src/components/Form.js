@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBooksToApi } from '../redux/books/books';
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Form = () => {
       category: bookCategory.current.value,
       id: uuid(),
     };
-    dispatch(addBook(newBook));
+    dispatch(addBooksToApi(newBook));
   };
 
   return (
