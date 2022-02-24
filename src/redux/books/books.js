@@ -2,18 +2,23 @@ import axios from 'axios';
 
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
-
+const GET_BOOKS = 'bookStore/books/GET_BOOKS';
 const initialState = [];
 const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/kkQKmrjtK2Q8iaDR7VT7/books';
 
-export const addBook = (payload) => ({
+const addBook = (payload) => ({
   type: ADD_BOOK,
   payload,
 });
 
-export const removeBook = (id) => ({
+const removeBook = (id) => ({
   type: REMOVE_BOOK,
   id,
+});
+
+const getBook = (payload) => ({
+  type: GET_BOOKS,
+  payload,
 });
 
 export const addBooksToApi = (newBook) => async (dispatch) => {
@@ -28,16 +33,22 @@ export const addBooksToApi = (newBook) => async (dispatch) => {
     category,
   };
   await axios.post(url, bookForAPI);
-  const books = await axios.get(url);
-  console.log(books);
   dispatch(addBook(newBook));
 };
 
 export const removeBooksFromApi = (id) => async (dispatch) => {
   await axios.delete(`${url}/${id}`);
-  const books = await axios.get(url);
-  console.log(books);
   dispatch(removeBook(id));
+};
+
+export const getBooksFromApi = () => async (dispatch) => {
+  const objWithBooks = await axios.get(url);
+  const books = Object.entries(objWithBooks.data).map(([id, arr]) => {
+    const { title, category } = arr[0];
+    return { id, title, category };
+  });
+  console.log(books, objWithBooks);
+  dispatch(getBook(books));
 };
 
 const reducer = (state = initialState, action) => {
@@ -56,6 +67,8 @@ const reducer = (state = initialState, action) => {
       (filter by the id key - i.e.:
         */
       return state.filter((book) => book.id !== action.id);
+    case GET_BOOKS:
+      return action.payload;
     default:
       return state;
   }

@@ -1,6 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getBooksFromApi } from '../redux/books/books';
 import Form from './Form';
 import Book from './Book';
 
@@ -15,6 +16,10 @@ const Books = () => {
       bookId={book.id}
     />
   ));
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getBooksFromApi());
+  }, [dispatch]);
   PrintBooks.propTypes = {
     list: PropTypes.arrayOf(PropTypes.object).isRequired,
   };
