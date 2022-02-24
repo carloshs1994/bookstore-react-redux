@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuid } from 'uuid';
-import { addBook } from '../redux/books/books';
+import { addBooksToApi } from '../redux/books/books';
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -11,12 +11,12 @@ const Form = () => {
   const submitBooksToStore = (event) => {
     event.preventDefault();
     const newBook = {
-      title: bookTitle.current.value,
-      author: bookAuthor.current.value,
+      titleForObj: bookTitle.current.value,
+      authorForObj: bookAuthor.current.value,
       category: bookCategory.current.value,
       id: uuid(),
     };
-    dispatch(addBook(newBook));
+    dispatch(addBooksToApi(newBook));
   };
 
   return (
