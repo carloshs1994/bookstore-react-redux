@@ -16,9 +16,9 @@ const Book = ({
   return (
     <li className="book">
       <div className="info">
-        <p>{category}</p>
+        <p className="category">{category}</p>
         <h2>{title}</h2>
-        <p>{Author}</p>
+        <p className="author">{Author}</p>
         <button onClick={removeBooksFromStore} id={bookId} type="button">
           Remove
         </button>
