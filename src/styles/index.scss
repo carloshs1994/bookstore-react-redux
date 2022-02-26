@@ -17,15 +17,16 @@ h1 {
 header {
   position: relative;
   width: calc(100% - 14rem);
+  height: 5.938rem;
   display: flex;
   align-items: center;
-  gap: 3rem;
-  padding: 1rem 7rem;
+  gap: 2.938rem;
+  padding: 0 7rem;
   border-bottom: 0.125rem solid #e8e8e8;
 
   nav {
     display: flex;
-    gap: 1rem;
+    gap: 2.563rem;
 
     a {
       text-decoration: none;
@@ -50,23 +51,23 @@ header {
 
 main {
   width: 100%;
-  height: calc(100vh - 72px);
+  height: calc(100vh - 134px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 2.5rem;
   background-color: #fafafa;
+  padding-top: 2.3rem;
 
   ul {
     overflow-y: auto;
-    height: 78%;
+    height: 69%;
     width: 100%;
     list-style: none;
-    margin: 10px 0;
+    margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 0.98rem;
     border-radius: 5px;
@@ -74,7 +75,7 @@ main {
     li {
       width: 71rem;
       height: 10.625rem;
-      padding: 1rem 2rem;
+      padding: 2rem 1.69rem 1.75rem 1.69rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -102,7 +103,6 @@ main {
           display: flex;
           justify-content: center;
           align-items: center;
-          box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
 
           .circle {
             .mask,
@@ -139,12 +139,6 @@ main {
             z-index: 100;
             font-weight: 700;
             font-size: 2em;
-            box-shadow:
-              inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
-              inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
-              -0.5px -0.5px 0 rgba(255, 255, 255, 1),
-              0.5px 0.5px 0 rgba(0, 0, 0, 0.15),
-              0 12px 10px -10px rgba(0, 0, 0, 0.05);
           }
         }
 
@@ -214,6 +208,7 @@ main {
           button {
             width: 100%;
             height: 2.063rem;
+            margin-top: 0.7rem;
             border: none;
             border-radius: 3px;
             background-color: #0290ff;
@@ -269,7 +264,7 @@ main {
           width: 14rem;
           display: flex;
           justify-content: space-between;
-          padding-top: 1.3rem;
+          padding-top: 0.5rem;
 
           button {
             background: none;
