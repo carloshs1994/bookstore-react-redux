@@ -21,7 +21,7 @@ const Books = () => {
     dispatch(getBooksFromApi());
   }, [dispatch]);
   PrintBooks.propTypes = {
-    list: PropTypes.arrayOf(PropTypes.any).isRequired,
+    list: PropTypes.arrayOf(PropTypes.shape({ root: PropTypes.string })).isRequired,
   };
   return (
     <main>
