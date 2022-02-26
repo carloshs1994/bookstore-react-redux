@@ -20,24 +20,27 @@ const Form = () => {
   };
 
   return (
-    <form>
-      <label htmlFor="book-title">
-        <input id="book-title" name="bookTitle" type="text" placeholder="Book Title" ref={bookTitle} required />
-      </label>
-      <label htmlFor="book-author">
-        <input id="book-author" name="bookAuthor" type="text" placeholder="Author" ref={bookAuthor} required />
-      </label>
-      <label htmlFor="select-category">
-        <select id="select-category" name="category" ref={bookCategory}>
-          <option> Category </option>
-          <option value="Romance">Romance</option>
-          <option value="suspense">Suspense</option>
-          <option value="fiction">Fiction</option>
-          <option value="action">Action</option>
-        </select>
-      </label>
-      <button type="submit" onClick={submitBooksToStore}>Add Book</button>
-    </form>
+    <div className="form-container">
+      <h2>ADD NEW BOOK</h2>
+      <form>
+        <label htmlFor="book-title">
+          <input id="book-title" name="bookTitle" type="text" placeholder="Book Title" ref={bookTitle} required />
+        </label>
+        <label htmlFor="book-author">
+          <input id="book-author" name="bookAuthor" type="text" placeholder="Author" ref={bookAuthor} required />
+        </label>
+        <label htmlFor="select-category" className="select-container">
+          <select id="select-category" name="category" ref={bookCategory}>
+            <option> Category </option>
+            <option value="Romance">Romance</option>
+            <option value="suspense">Suspense</option>
+            <option value="fiction">Fiction</option>
+            <option value="action">Action</option>
+          </select>
+        </label>
+        <button type="submit" onClick={submitBooksToStore}>ADD BOOK</button>
+      </form>
+    </div>
   );
 };
 
