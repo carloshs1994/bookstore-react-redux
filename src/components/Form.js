@@ -21,7 +21,7 @@ const Form = () => {
 
   return (
     <div className="form-container">
-      <h2>ADD NEW BOOK</h2>
+      <h4>ADD NEW BOOK</h4>
       <form>
         <label htmlFor="book-title">
           <input id="book-title" name="bookTitle" type="text" placeholder="Book Title" ref={bookTitle} required />
@@ -38,7 +38,7 @@ const Form = () => {
             <option value="action">Action</option>
           </select>
         </label>
-        <button type="submit" onClick={submitBooksToStore}>ADD BOOK</button>
+        <button className="add-book" type="submit" onClick={submitBooksToStore}>ADD BOOK</button>
       </form>
     </div>
   );
