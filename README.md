@@ -2,7 +2,7 @@
 
 # Bookstore
 
-> This is an app to store your books. It was created using React and Redux. Styled using SASS. Hope you like it!
+> This is an app to store your books. It was created using React and Redux. Styled using SASS.
 
 ## Built With
 
